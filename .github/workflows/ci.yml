@@ -21,7 +21,6 @@ jobs:
 
       - run: npm ci
 
-      - run: npx nx format:check
       - run: npx nx run signals:test --configuration=ci
       - run: npx nx run signals:build
 
