@@ -1,4 +1,5 @@
 name: CI
+
 on:
   push:
     branches:
@@ -13,21 +14,21 @@ jobs:
         with:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
       - run: npm ci
 
       - run: npx nx format:check
       - run: npx nx run signals:test --configuration=ci
       - run: npx nx run signals:build
 
-      - name: Pre-release
-        if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
-        working-directory: /dist/packages/signals
-        uses: actions/setup-node@v3
-
       - name: Release
-        if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
         run: |
           cd ./dist/packages/signals
           ls -la
