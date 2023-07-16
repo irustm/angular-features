@@ -18,6 +18,7 @@ jobs:
       - run: npx nx format:check
       - run: npx nx run signals:test --configuration=ci
       - run: npx nx run signals:build
+      - run: cd ./dist/packages/signals
 
       - name: Pre-release
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
@@ -28,5 +29,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          cd ./dist/packages/signals
           npm publish
