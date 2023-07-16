@@ -19,11 +19,12 @@ jobs:
       - run: npx nx run signals:test --configuration=ci
       - run: npx nx run signals:build
 
+      - uses: actions/setup-node@v3
+
       - name: Release
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        uses: actions/setup-node@v3
         run: |
           cd ./dist/libs/signals
           npm publish
