@@ -26,5 +26,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          cd ./dist/libs/signals
+          cd ./dist/packages/signals
           npm publish
