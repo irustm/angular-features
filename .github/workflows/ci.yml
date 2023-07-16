@@ -22,7 +22,6 @@ jobs:
       - name: Pre-release
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
         working-directory: /dist/packages/signals
-
         uses: actions/setup-node@v3
 
       - name: Release
