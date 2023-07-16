@@ -30,6 +30,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
         run: |
-          cd ./dist/packages/signals
-          ls -la
-          npm publish
+          cd dist/packages/signals && npm publish --access public --verbose || exit_code=0
