@@ -1,9 +1,5 @@
 # Angular Signals Implementation
 
-```
- @ng-features/signals
-```
-
 This directory contains the code for Angular's reactive primitive, an implementation of the "signal" concept. A signal is a value which is "reactive", meaning it can notify interested consumers when it changes. There are many different implementations of this concept, with different designs for how these notifications are subscribed to and propagated, how cleanup/unsubscription works, how dependencies are tracked, etc. This document describes the algorithm behind our specific implementation of the signal pattern.
 
 ## Conceptual surface
