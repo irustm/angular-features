@@ -55,6 +55,8 @@ declare global {
         dehydratedViewsCleanupRuns: number;
         componentsSkippedHydration: number;
     }
+
+    const WeakRef: any;
 }
 
 export function ngDevModeResetPerfCounters(): NgDevModePerfCounters {
