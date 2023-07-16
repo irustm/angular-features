@@ -57,6 +57,7 @@ declare global {
     }
 
     const WeakRef: any;
+    const __R_NG_FEATURES_GLOBAL_SIGNALS__: any;
 }
 
 export function ngDevModeResetPerfCounters(): NgDevModePerfCounters {
