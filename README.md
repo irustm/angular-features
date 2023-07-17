@@ -7,7 +7,8 @@ Library with Angular practices without third-party dependencies
 
 - [x] Angular Signals
 - [ ] Angular DI
-- [ ] Angular Template rendering in runtime
+- [ ] Angular Template parser
+- [ ] Angular Default DOM renderer
 
 ## Angular signals
 
