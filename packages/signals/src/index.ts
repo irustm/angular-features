@@ -14,4 +14,4 @@ export {CreateSignalOptions, setPostSignalSetFn, signal, WritableSignal} from '.
 export {untracked} from './src/untracked';
 export {Watch, WatchCleanupFn} from './src/watch';
 export {setAlternateWeakRefImpl} from './src/weak_ref';
-export {effect, EffectManager, EffectCleanupFn, EffectCleanupRegisterFn} from './src/effect'
+export {effect, effectFlush, EffectManager, EffectCleanupFn, EffectCleanupRegisterFn} from './src/effect'
