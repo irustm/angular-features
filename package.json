@@ -5,6 +5,7 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "@nx/esbuild": "^16.5.5",
     "@nx/js": "^16.5.2"
   },
   "devDependencies": {
