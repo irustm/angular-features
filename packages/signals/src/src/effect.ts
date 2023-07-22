@@ -139,6 +139,11 @@ export function effect(
   return effectManager.create(effectFn, !!options?.allowSignalWrites);
 }
 
+export function effectFlush(): void {
+  const effectManager = getEffectManager();
+  effectManager.flush();
+}
+
 function getEffectManager(): EffectManager {
   if (!global.__R_NG_FEATURES_GLOBAL_SIGNALS__) {
     global.__R_NG_FEATURES_GLOBAL_SIGNALS__ = new EffectManager();
