@@ -15,15 +15,12 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["packages/signals/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/packages/signals"],
+      "outputs": ["{workspaceRoot}/coverage/packages/signals"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/packages/signals"

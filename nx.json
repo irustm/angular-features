@@ -1,25 +1,22 @@
 {
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "ODZlNmFkNWUtY2RjYS00MWI5LWIxNmYtMDIxODQxZmRmZDc3fHJlYWQtd3JpdGU="
-      }
-    }
-  },
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
-    "lint": {
+    "build": {
+      "cache": true
+    },
+    "@nx/vite:test": {
+      "inputs": ["default", "^default"],
+      "cache": true
+    },
+    "@nx/eslint:lint": {
       "inputs": [
         "default",
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore"
-      ]
-    },
-    "test": {
-      "inputs": ["default", "^default"]
+      ],
+      "cache": true
     }
-  }
+  },
+  "nxCloudAccessToken": "ODZlNmFkNWUtY2RjYS00MWI5LWIxNmYtMDIxODQxZmRmZDc3fHJlYWQtd3JpdGU="
 }
